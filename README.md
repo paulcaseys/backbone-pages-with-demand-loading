@@ -1,8 +1,7 @@
-A Backbone.js base, using the common PureMVC and Gaia framework conventions
+A Backbone.js base
 ==================================================
 
-
-A starting point for backbone.js projects
+Using common PureMVC and Gaia framework conventions. A good starting point for backbone.js projects.
 
 * Most functionality is in 'js/app'
 * Libraries are in 'js/libs'
