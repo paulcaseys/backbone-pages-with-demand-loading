@@ -40,7 +40,7 @@ define([
     var initialize = function(){
 
       // initialises the state controller
-      App.Models.StateModel = new StateModel;
+      App.Models.PageStateModel = new StateModel;
 
       // initialises the views onto the page
       App.Views.HomePageView = new HomePageView;

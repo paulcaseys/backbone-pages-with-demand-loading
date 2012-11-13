@@ -37,19 +37,19 @@ define([
 
         defaultRoute: function(){
             console.log('route: home');
-            App.Models.StateModel.showView(App.Views.HomePageView);
+            App.Models.PageStateModel.showView(App.Views.HomePageView);
         },
         getGallery: function(){
             console.log('route: gallery');
-            App.Models.StateModel.showView(App.Views.GalleryPageView);
+            App.Models.PageStateModel.showView(App.Views.GalleryPageView);
         },
         getHelp: function(id){
             console.log('route: help '+ id );
-            App.Models.StateModel.showView(App.Views.HelpPageView);
+            App.Models.PageStateModel.showView(App.Views.HelpPageView);
         },
         getExample: function(){
             console.log('route: example');
-            App.Models.StateModel.showView(App.Views.ExamplePageView);
+            App.Models.PageStateModel.showView(App.Views.ExamplePageView);
         }
 
 

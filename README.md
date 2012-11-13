@@ -24,9 +24,9 @@ Where the '#hash' URIs are routed
 `js/app/models/StateModel.js`
 This model defines the state of views. 
 
-Create a new state instance by: `App.Models.StateModel = new StateModel;`
+Create a new state instance by: `App.Models.PageStateModel = new StateModel;`
 
-Change the view of this instance can be done by `App.Models.StateModel.showView(App.Views.HomePageView);`
+Change the view of this instance can be done by `App.Models.PageStateModel.showView(App.Views.HomePageView);`
 
 You can make as many state instances as you like, so this model can be used to control the state of small panels inside a view.
 
