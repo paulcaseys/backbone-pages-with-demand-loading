@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>A Backbone.js base, using the common PureMVC and Gaia framework conventions</title>
+  <link rel="stylesheet" href="css/app.css"/>
+
+  <!--  require.js is a JavaScript file loader library. More information: http://requirejs.org/ -->
+  <script src="js/libs/require/require.js" ></script>
+
+  <!--  Configures the backbone app then loads AppInit.js which is where the views and router are initialised. -->
+  <script src="js/app/AppConfig.js" ></script>
+
+
+</head>
+
+<body>
+
+  <div id="menu">
+    
+    <ul>
+      <li><a href="#">home</a></li>
+      <li><a href="#/gallery/">gallery</a></li>
+      <li><a href="#/help/23">help</a></li>
+      <li><a href="#/example/">example</a></li>
+    </ul>
+
+  </div>
+
+
+  <div id="home-page" class="main-wrapper">
+      <h1>Home page</h1>
+      <p>Home content</p>
+  </div>
+
+
+  <div id="gallery-page" class="main-wrapper">
+      <h1>Gallery page</h1>
+      <p>Demand loading assets, images</p>
+  </div>
+
+
+  <div id="help-page" class="main-wrapper">
+      <h1>Help page</h1>
+      <p>Help content</p>
+  </div>
+
+  <div id="example-page" class="main-wrapper">
+      <h1>Example page</h1>
+      <p>Example content</p>
+  </div>
+
+
+
+
+  
+
+  <div id="credits">
+    Footer text.
+  </div>
+
+  <!-- Templates -->
+
+
+
+
+  </body>
+</html>
