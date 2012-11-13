@@ -3,8 +3,8 @@ A Backbone.js base
 
 Using common PureMVC and Gaia framework conventions. A good starting point for backbone.js projects.
 
-* Most functionality is in `js/app`
-* Libraries are in `js/libs`
+* Most of the functionality is in `js/app`
+* Third-party libraries are in `js/libs`
 * Entrypoint is `index.html`
 
 ## Script overview
