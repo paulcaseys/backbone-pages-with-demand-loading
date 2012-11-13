@@ -16,7 +16,6 @@ define([
   'underscore',
   'backbone'
 
-
 // require js: defines the 
 ], function($, _, Backbone){
 
@@ -38,7 +37,7 @@ define([
         // transitions the new view in
         this.currentView.transitionIn();
 
-        
+
         
       }
       

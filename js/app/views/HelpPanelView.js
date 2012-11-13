@@ -1,6 +1,6 @@
 
 /**
- * Filename: js/app/views/HelpPageView
+ * Filename: js/app/views/HelpPanelView
  *
  * initialises the view
  * 
@@ -14,14 +14,7 @@ define([
   // required libraries
   'jquery',
   'underscore',
-  'backbone',
-
-  // state model
-  'App.Models.StateModel',
-
-  // required views
-  'App.Views.HelpPanelView'
-
+  'backbone'
 
   // required collections
   //'App.Collections.HelloWorldCollection'
@@ -30,39 +23,30 @@ define([
   //'App.Models.HelloWorldModel'
 
 // require js: defines the 
-], function($, _, Backbone, StateModel, HelpPanelView){
+], function($, _, Backbone){
 
 
-	var HelpPageView = Backbone.View.extend({
+	var HelpPanelView = Backbone.View.extend({
 
 		
 	    // binds view to the existing skeleton of the App already present in the HTML.
-	    el: $("#help-page"),
+	    el: $("#help-panel-1"),
 
 	    // at initialization we bind to the relevant events
 	    initialize: function() {
-
+	    	
 	    	// hides the element until App.Models.StateModel.showView(WheteverView) calls the transitionIn() function
 	    	$(this.el).hide(); 
 	    	
 	  		// creates an example event listener
 	    	this.on('testCall', this.testMethod, this);
 
-		    	// initialises the state controller
-		    	App.Models.HelpPanelsStateModel = new StateModel;
-      			
-      			// creates three panel views
-      			App.Views.HelpPanelView1 = new HelpPanelView({el: '#help-panel-1'});
-      			App.Views.HelpPanelView2 = new HelpPanelView({el: '#help-panel-2'});
-      			App.Views.HelpPanelView3 = new HelpPanelView({el: '#help-panel-3'});
-
-
 	    },
 
     	
     	// method for the eventlistener
 	    testMethod: function (e) {
-	       console.log('HelpPageView testMethod');
+	       console.log('HelpPanelView testMethod');
 	    },
 	    
 
@@ -118,6 +102,6 @@ define([
 
 
     // require js: defines function/s to be accessed by require js
-    return HelpPageView;
+    return HelpPanelView;
 
 });

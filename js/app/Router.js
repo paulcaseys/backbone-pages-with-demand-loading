@@ -46,6 +46,13 @@ define([
         getHelp: function(id){
             console.log('route: help '+ id );
             App.Models.PageStateModel.showView(App.Views.HelpPageView);
+            // tels the panel to display correctly
+            App.Models.HelpPanelsStateModel.showView(App.Views["HelpPanelView"+id]);
+
+            // selects a menu item
+            $("#submenu a").removeClass('active');
+            $("#submenu a.menu-item-"+id).addClass('active');
+            
         },
         getExample: function(){
             console.log('route: example');

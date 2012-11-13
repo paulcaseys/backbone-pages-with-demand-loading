@@ -41,6 +41,7 @@ requirejs.config({
 		'App.Views.HomePageView': 			'js/app/views/HomePageView',
 		'App.Views.GalleryPageView': 		'js/app/views/GalleryPageView',
 		'App.Views.HelpPageView': 			'js/app/views/HelpPageView',
+		'App.Views.HelpPanelView': 			'js/app/views/HelpPanelView',
 		'App.Views.ExamplePageView': 		'js/app/views/ExamplePageView'
 
 
