@@ -57,6 +57,10 @@ define([
       App.Views.HelpPageView.trigger("testCall");
       App.Views.ExamplePageView.trigger("testCall");
 
+      // hides the loading div (if it exists)
+      if ($("#loading-page").length > 0){
+        $("#loading-page").hide();
+      }
       
 
     };

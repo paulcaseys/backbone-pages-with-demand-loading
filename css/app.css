@@ -52,6 +52,9 @@ body {
 	display: none;
 }
 
+#loading-page.main-wrapper {
+	display: block;
+}
 .main-wrapper  h1 {
 	font-size: 36px;
 	font-weight: bold;

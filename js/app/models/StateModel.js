@@ -37,6 +37,8 @@ define([
 
         // transitions the new view in
         this.currentView.transitionIn();
+
+        
         
       }
       
