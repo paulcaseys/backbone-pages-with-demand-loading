@@ -48,7 +48,7 @@ define([
 	  		// creates an example event listener
 	    	this.on('testCall', this.testMethod, this);
 
-		    	// initialises the state controller
+		    	// initialises the state model/controller
 		    	App.Models.HelpPanelsStateModel = new StateModel;
       			
       			// creates three panel views
