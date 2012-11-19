@@ -16,12 +16,10 @@ define([
   'underscore',
   'backbone'
 
-// require js: defines the 
+// require js: defines instances
 ], function($, _, Backbone){
 
-    // Todo Model
-    // ----------
-    // Our basic **Todo** model has `title`, `order`, and `done` attributes.
+    // defines model
     var StateModel = Backbone.Model.extend({
 
       

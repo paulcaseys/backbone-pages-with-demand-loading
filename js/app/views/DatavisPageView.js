@@ -1,6 +1,6 @@
 
 /**
- * Filename: js/app/views/HelpPageView
+ * Filename: js/app/views/DatavisPageView
  *
  * initialises the view
  * 
@@ -16,15 +16,8 @@ define([
   'underscore',
   'backbone',
 
-  // state model
-  'App.Models.StateModel',
-
-  // state menu model
-  'App.Models.StateMenuModel',
-
-  // required views
-  'App.Views.HelpPanelView'
-
+  'kendo.console',
+  'kendo.dataviz'
 
   // required collections
   //'App.Collections.HelloWorldCollection'
@@ -33,20 +26,17 @@ define([
   //'App.Models.HelloWorldModel'
 
 // require js: defines instances
-], function($, _, Backbone, StateModel, StateMenuModel, HelpPanelView){
+], function($, _, Backbone){
 
 
-	var HelpPageView = Backbone.View.extend({
+	var DatavisPageView = Backbone.View.extend({
 
 		
 	    // binds view to the existing skeleton of the App already present in the HTML.
-	    el: $("#help-page"),
-
-      	
+	    el: $("#datavis-page"),
 
 	    // at initialization we bind to the relevant events
 	    initialize: function() {
-
 	    	
 	    	// hides the element until App.Models.StateModel.showView(WheteverView) calls the transitionIn() function
 	    	$(this.el).hide(); 
@@ -54,24 +44,12 @@ define([
 	  		// creates an example event listener
 	    	this.on('testCall', this.testMethod, this);
 
-		    // initialises the state model/controller
-		    App.Models.HelpPanelsStateModel = new StateModel;
-
-      		// initialises the state controller for the menu
-      		App.Models.HelpPanelStateMenuModel = new StateMenuModel;
-
-      		// creates three panel views
-      		App.Views.HelpPanelView1 = new HelpPanelView({el: '#help-panel-1'});
-      		App.Views.HelpPanelView2 = new HelpPanelView({el: '#help-panel-2'});
-      		App.Views.HelpPanelView3 = new HelpPanelView({el: '#help-panel-3'});
-
-
 	    },
 
     	
     	// method for the eventlistener
 	    testMethod: function (e) {
-	       console.log('HelpPageView testMethod');
+	       console.log('DatavisPageView testMethod');
 	    },
 	    
 
@@ -89,6 +67,51 @@ define([
 
 	    	// basic way to display element
 	    	$(this.el).show();  	
+
+
+
+            
+	    	$("#chart-kendo").kendoChart({
+                        theme: $(document).data("kendoSkin") || "default",
+                        title: {
+                            text: "Break-up of Spain Electricity Production for 2008"
+                        },
+                        legend: {
+                            position: "bottom",
+                            labels: {
+                                template: "#= text # (#= value #%)"
+                            }
+                        },
+                        seriesDefaults: {
+                            labels: {
+                                visible: true,
+                                position: "outsideEnd",
+                                format: "{0}%"
+                            }
+                        },
+                        series: [{
+                            type: "donut",
+                            data: [{
+                                category: "Hydro",
+                                value: 22
+                            }, {
+                                category: "Solar",
+                                value: 2
+                            }, {
+                                category: "Nuclear",
+                                value: 49
+                            }, {
+                                category: "Wind",
+                                value: 27
+                            }]
+                        }],
+                        tooltip: {
+                            visible: true,
+                            format: "{0}%"
+                        }
+                    });
+
+
 	    },
 
     	// removes all eventlisteners
@@ -127,6 +150,6 @@ define([
 
 
     // require js: defines function/s to be accessed by require js
-    return HelpPageView;
+    return DatavisPageView;
 
 });

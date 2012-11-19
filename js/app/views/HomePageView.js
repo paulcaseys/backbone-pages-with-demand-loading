@@ -22,7 +22,7 @@ define([
   // required models  
   //'App.Models.HelloWorldModel'
 
-// require js: defines the 
+// require js: defines instances
 ], function($, _, Backbone){
 
 

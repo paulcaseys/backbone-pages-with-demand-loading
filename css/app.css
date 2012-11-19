@@ -4,6 +4,11 @@ body {
 	padding: 0;
 }
 
+
+
+
+
+
 body {
 	font: 14px "Helvetica Neue", Helvetica, Arial, sans-serif;
 	line-height: 1.4em;
@@ -34,12 +39,15 @@ body {
 #menu ul li a:hover {
   color: #ccc;
 }
+#menu ul li a.active {
+  color: #aaa;
+}
 
 
 #submenu {
   background: #aaa;
   height: 30px; color: #fff; text-align: right;
-  width: 470px;
+  width: 480px;
 }
 #submenu ul {
   list-style: none;
@@ -50,18 +58,80 @@ body {
   margin-left: 10px;
 }
 #submenu ul li a {
-  color: #fff;
+  color: #ddd;
   line-height: 30px;
   text-decoration: none;
+  cursor: pointer;
 }
 #submenu ul li a:hover {
   color: #ccc;
 }
 #submenu ul li a.active {
-  color: #dddddd;
+  color: #fff;
 }
 
+.sticky #submenu {
+	position:fixed;
+	top:0;
+	left: -240px;
+	margin-left: 50%;
+}
 
+#submenu-placeholder {
+	height: 0px;
+}
+.sticky #submenu-placeholder {
+	height: 30px;
+}
+
+#gallery-items-target {
+  background: #eeeeee;
+  height: 640px; color: #555555; text-align: center;
+  width: 470px;
+
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	-ms-border-radius: 5px;
+	-o-border-radius: 5px;
+	border-radius: 5px;
+
+	text-transform:lowercase;
+}
+#gallery-items-target img {
+	border: 0;
+}
+#gallery-items-target ul {
+  list-style: none;
+  margin: 0; padding: 0;
+}
+#gallery-items-target ul li {
+  float: left;
+  padding-top: 10px;
+  margin-left: 10px;
+  margin-top: 10px;
+  background-color: #ffffff;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	-ms-border-radius: 5px;
+	-o-border-radius: 5px;
+	border-radius: 5px;
+}
+#gallery-items-target ul li a {
+  color: #999999;
+  line-height: 30px;
+  text-decoration: none;
+  width: 220px;
+  height: 180px;
+  display: block;
+
+}
+#gallery-items-target ul li a:hover {
+  color: #ccc;
+}
+#gallery-items-target ul li a.active {
+  color: #dddddd;
+}
+/**/
 
 .main-wrapper {
 	display: none;
@@ -276,4 +346,44 @@ body {
 
 #credits a {
 	color: #888;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+#chart {
+                color: #000000;
+                /*left: 50%;
+                margin: -150px 0 0 -400px;
+                position: absolute;
+                top: 50%;*/
+                width: 470px;
+                height: 300px;
+            }
+
+#holder {
+    height: 480px;
+    left: 50%;
+    margin: -240px 0 0 -320px;
+    position: absolute;
+    top: 50%;
+    width: 640px;
+}
+#copy {
+    bottom: 0;
+    font: 300 .7em "Helvetica Neue", Helvetica, "Arial Unicode MS", Arial, sans-serif;
+    position: absolute;
+    right: 1em;
+    text-align: right;
+}
+#copy a {
+    color: #fff;
 }

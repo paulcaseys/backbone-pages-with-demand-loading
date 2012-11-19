@@ -1,6 +1,6 @@
 
 /**
- * Filename: js/app/models/ExampleModel
+ * Filename: js/app/models/GalleryModel
  *
  * example model
  * 
@@ -20,19 +20,22 @@ define([
 // require js: defines instances
 ], function($, _, Backbone){
 
-    // Todo Model
-    // ----------
-    // Our basic **Todo** model has `title`, `order`, and `done` attributes.
-    var ExampleModel = Backbone.Model.extend({
+    // Gallery Model
+    var GalleryModel = Backbone.Model.extend({
 
-      // Default attributes for the todo item.
+      // default url for json
+      //url: 'data/GalleryData.json?asdf=asd',
+
+      // Default attributes 
       defaults: function() {
         return {
-          personName: "No Name...",
-          order: 1,
-          done: false
+          page_title: "No Title...",
+          page_image_url: "http:",
+          vote_count: "10"
         };
       }
+
+
 
     });
      
@@ -42,6 +45,6 @@ define([
 
 
     // require js: defines function/s to be accessed by require js
-    return ExampleModel;
+    return GalleryModel;
 
 });

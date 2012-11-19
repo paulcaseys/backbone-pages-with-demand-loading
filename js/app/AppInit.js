@@ -20,18 +20,23 @@ define([
   'App.Router',
 
   // required models
+  'App.Models.ConfigModel',
   'App.Models.StateModel',
+  'App.Models.StateMenuModel',
 
   // required views
   'App.Views.HomePageView',
   'App.Views.GalleryPageView',
   'App.Views.HelpPageView',
+  'App.Views.DatavisPageView',
+  'App.Views.RaphaelPageView',
+  'App.Views.ParallaxPageView',
   'App.Views.ExamplePageView'
 
 
 
-// require js: defines the 
-], function($, _, Backbone, Router, StateModel, HomePageView, GalleryPageView, HelpPageView, ExamplePageView){
+// require js: defines instances
+], function($, _, Backbone, Router, ConfigModel, StateModel, StateMenuModel, HomePageView, GalleryPageView, HelpPageView, DatavisPageView, RaphaelPageView, ParallaxPageView, ExamplePageView){
 
 
     
@@ -39,13 +44,22 @@ define([
     // initialises various  app views
     var initialize = function(){
 
+      // initialises the app configuration (eg: App.Models.ConfigModel.browserRatioNum)
+      App.Models.ConfigModel = new ConfigModel;
+      
       // initialises the state controller
       App.Models.PageStateModel = new StateModel;
+
+      // initialises the state controller for the menu
+      App.Models.PageStateMenuModel = new StateMenuModel;
 
       // initialises the views onto the page
       App.Views.HomePageView = new HomePageView;
       App.Views.GalleryPageView = new GalleryPageView;
       App.Views.HelpPageView = new HelpPageView;
+      App.Views.DatavisPageView = new DatavisPageView;
+      App.Views.RaphaelPageView = new RaphaelPageView;
+      App.Views.ParallaxPageView = new ParallaxPageView;
       App.Views.ExamplePageView = new ExamplePageView;
 
       // initialises the router
@@ -55,6 +69,9 @@ define([
       App.Views.HomePageView.trigger("testCall");
       App.Views.GalleryPageView.trigger("testCall");
       App.Views.HelpPageView.trigger("testCall");
+      App.Views.DatavisPageView.trigger("testCall");
+      App.Views.RaphaelPageView.trigger("testCall");
+      App.Views.ParallaxPageView.trigger("testCall");
       App.Views.ExamplePageView.trigger("testCall");
 
       // hides the loading div (if it exists)

@@ -14,16 +14,16 @@ define([
   // required libraries
   'jquery',
   'underscore',
-  'backbone'
+  'backbone',
 
   // required collections
   //'App.Collections.HelloWorldCollection'
 
   // required models  
-  //'App.Models.HelloWorldModel'
+  'App.Models.GalleryModel'
 
-// require js: defines the 
-], function($, _, Backbone){
+// require js: defines instances
+], function($, _, Backbone, GalleryModel){
 
 
   var GalleryPageView = Backbone.View.extend({
@@ -31,6 +31,9 @@ define([
     
       // binds view to the existing skeleton of the App already present in the HTML.
       el: $("#gallery-page"),
+
+      // target for gallery
+      galleryItemsTarget: $('#gallery-items-target ul'),
 
       // at initialization we bind to the relevant events
       initialize: function() {
@@ -43,7 +46,28 @@ define([
 
       },
 
+      // loops through the JSON array
+      onDataLoadComplete: function (response, dataResponse) {
+        //console.log(response);
+        //console.log(dataResponse[0].page_title);
+        
+        // clears the target 
+        App.Views.GalleryPageView.galleryItemsTarget.html('');
+
+        // loops through the dataResponse array
+        for (var i = 0; i < dataResponse.length; i++) {
+          App.Views.GalleryPageView.createItem(dataResponse[i]);
+        }
+      },
+
+      // creates an item on the page
+      createItem: function (curObj) { 
+        //console.log(curObj.page_title);
+        this.galleryItemsTarget.append('<li><a href="'+curObj.page_url+'" target="_blank" > '+curObj.page_title+'<br><img src="'+curObj.page_image_url+'"></a></li>');
+
+      },
       
+
       // method for the eventlistener
       testMethod: function (e) {
          console.log('GalleryPageView testMethod');
@@ -64,6 +88,18 @@ define([
 
         // basic way to display element
         $(this.el).show();    
+
+        // loading notification 
+        this.galleryItemsTarget.html('<br>Loading...');
+
+        // loads the gallery items
+        var GItems = new GalleryModel;
+        GItems.url = App.Data.GalleryData;
+        //GItems.url = "http://cosmos.is/api/service/data/format/jsonp/?project_name=SummerAtTarget&project_password=6CB4816A23A965B5DFD58E45F4C23&table=unique_references&batch=1&batchSize=6&whereConditionArray=project_id||9&select=*&orderBy=vote_count||desc&callback=?"
+        GItems.type = 'GET';
+        GItems.dataType = 'jsonp';
+        GItems.fetch({success: this.onDataLoadComplete});
+
       },
 
       // removes all eventlisteners
