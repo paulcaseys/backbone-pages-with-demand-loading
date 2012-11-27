@@ -136,6 +136,9 @@ define([
 			function submenuHandler(){
 				var targetId = $(this).data('clickvalue');
 				App.Views.ParallaxPageView.scrollTo(targetId);
+
+				// updates the uri hash, but does not route
+				App.Router.navigate("/parallax/"+targetId, { trigger: false });
 			}
 			
 
@@ -176,7 +179,7 @@ define([
 					App.Models.ParallaxPageStateMenuModel.selectMenuItem(sectionValue, "#parallax-page #submenu", "a", ".menu-item-");
 
 					// updates the uri hash, but does not route
-					App.Router.navigate("/parallax/"+sectionValue, { trigger: false });
+					//App.Router.navigate("/parallax/"+sectionValue, { trigger: false });
 				   
 				}, {
 				   offset: "25%", 
