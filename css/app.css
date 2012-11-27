@@ -44,43 +44,43 @@ body {
 }
 
 
-#submenu {
+.submenu {
   background: #aaa;
   height: 30px; color: #fff; text-align: right;
   width: 480px;
 }
-#submenu ul {
+.submenu ul {
   list-style: none;
   margin: 0; padding: 0;
 }
-#submenu ul li {
+.submenu ul li {
   float: left;
   margin-left: 10px;
 }
-#submenu ul li a {
+.submenu ul li a {
   color: #ddd;
   line-height: 30px;
   text-decoration: none;
   cursor: pointer;
 }
-#submenu ul li a:hover {
+.submenu ul li a:hover {
   color: #ccc;
 }
-#submenu ul li a.active {
+.submenu ul li a.active {
   color: #fff;
 }
 
-.sticky #submenu {
+.sticky .submenu {
 	position:fixed;
 	top:0;
 	left: -240px;
 	margin-left: 50%;
 }
 
-#submenu-placeholder {
+.submenu-placeholder {
 	height: 0px;
 }
-.sticky #submenu-placeholder {
+.sticky .submenu-placeholder {
 	height: 30px;
 }
 

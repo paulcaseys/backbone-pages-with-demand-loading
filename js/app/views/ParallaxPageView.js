@@ -131,7 +131,7 @@ define([
 
 	    	
 	    	// submenu clicking
-			$("#parallax-page #submenu a").on(App.Models.ConfigModel.eventType, App.Models.ConfigModel.eventObj, submenuHandler);
+			$("#parallax-page .submenu a").on(App.Models.ConfigModel.eventType, App.Models.ConfigModel.eventObj, submenuHandler);
 			
 			function submenuHandler(){
 				var targetId = $(this).data('clickvalue');
@@ -146,7 +146,7 @@ define([
 			if (App.Models.ConfigModel.touch === true) {
 				// IS A TOUCH SCREEN
 				// change styles here
-				//$('#parallax-page #submenu').parent().addClass('sticky');
+				//$('#parallax-page .submenu').parent().addClass('sticky');
 				var thisCorrectsJSLint = null;
 
 			} else {
@@ -176,7 +176,7 @@ define([
 
 					var sectionValue = $active.data('value');
 
-					App.Models.ParallaxPageStateMenuModel.selectMenuItem(sectionValue, "#parallax-page #submenu", "a", ".menu-item-");
+					App.Models.ParallaxPageStateMenuModel.selectMenuItem(sectionValue, "#parallax-page .submenu", "a", ".menu-item-");
 
 					// updates the uri hash, but does not route
 					//App.Router.navigate("/parallax/"+sectionValue, { trigger: false });
@@ -201,15 +201,15 @@ define([
 
 		    	// SUBMENU WAYPOINT
 		    	// determines the subenu stickiness
-				$('#parallax-page #submenu').waypoint(function(event, direction) {
-					$('#parallax-page #submenu').parent().toggleClass('sticky', direction === "down");
-					$("#parallax-page #submenu-placeholder").parent().toggleClass('sticky', direction === "down");
+				$('#parallax-page .submenu').waypoint(function(event, direction) {
+					$('#parallax-page .submenu').parent().toggleClass('sticky', direction === "down");
+					$("#parallax-page .submenu-placeholder").parent().toggleClass('sticky', direction === "down");
 					event.stopPropagation();
 				});
 
 				// clears sticky class
-				$('#parallax-page #submenu').parent().removeClass('sticky');
-				$('#parallax-page #submenu-placeholder').parent().removeClass('sticky');
+				$('#parallax-page .submenu').parent().removeClass('sticky');
+				$('#parallax-page .submenu-placeholder').parent().removeClass('sticky');
 
 			}
 			
@@ -222,7 +222,7 @@ define([
 	    	
 	    	
 	    	// removes submenu nav event
-	    	$("#parallax-page #submenu a").off();
+	    	$("#parallax-page .submenu a").off();
 			
 			// checks if the device is a touch screen
 			if (App.Models.ConfigModel.touch === true){
@@ -231,7 +231,7 @@ define([
 			} else {
 				// IS NOT A TOUCH SCREEN
 	    		$('#parallax-page .waypoint-section').waypoint('destroy');
-	    		$('#parallax-page #submenu').waypoint('destroy');
+	    		$('#parallax-page .submenu').waypoint('destroy');
 	    	}
 	    }
 
