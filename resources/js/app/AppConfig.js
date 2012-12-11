@@ -17,7 +17,7 @@ App.Data = {};
 
 // DATA SERVICES
 // define data service paths
-App.Data.GalleryData = 'data/GalleryData.json' + '?ver=' + ((new Date()).getTime());
+App.Data.GalleryData = 'resources/data/GalleryData.json' + '?ver=' + ((new Date()).getTime());
 
 
 // CONSOLE FIX
@@ -53,61 +53,61 @@ requirejs.config({
 	paths: {
 
 		// paths to common libraries
-		'jquery': 		'js/libs/jquery/jquery-min',
-		'backbone': 	'js/libs/backbone/backbone-min',
-		'underscore': 	'js/libs/underscore/underscore-min',
-		'json': 		'js/libs/json2/json2',
+		'jquery': 		'resources/js/libs/jquery/jquery-min',
+		'backbone': 	'resources/js/libs/backbone/backbone-min',
+		'underscore': 	'resources/js/libs/underscore/underscore-min',
+		'json': 		'resources/js/libs/json2/json2',
 
 		// jquery easing
-		'jquery.easing': 'js/libs/jquery/jquery.easing',
+		'jquery.easing': 'resources/js/libs/jquery/jquery.easing',
 
 		// kendo 
-		'kendo.console': 	'js/libs/kendo/console',
-		'kendo.dataviz': 	'js/libs/kendo/kendo.dataviz.min',
+		'kendo.console': 	'resources/js/libs/kendo/console',
+		'kendo.dataviz': 	'resources/js/libs/kendo/kendo.dataviz.min',
 
 		// raphael 
-		'raphael': 	'js/libs/raphael/raphael.min',
+		'raphael': 	'resources/js/libs/raphael/raphael.min',
 
 		// waypoints (scrolling)
-		'waypoints': 	'js/libs/waypoints/waypoints.min',
+		'waypoints': 	'resources/js/libs/waypoints/waypoints.min',
 
 		// fixie (lorem ipsum generator)
-		'fixie': 	'js/libs/fixie/fixie.min',
+		'fixie': 	'resources/js/libs/fixie/fixie.min',
 
 		// modernizr (html5 conditional and tag correction)
-		'modernizr': 	'js/libs/modernizr/modernizr.min',
+		'modernizr': 	'resources/js/libs/modernizr/modernizr.min',
 		
 		// paths to app initialiser
-		'AppInit': 								'js/app/AppInit',
+		'AppInit': 								'resources/js/app/AppInit',
 
 		// paths to app router (routes hash URIs)
-		'App.Router': 						'js/app/Router',
+		'App.Router': 						'resources/js/app/Router',
 
 		// paths to the config model (for constants)
-		'App.Models.ConfigModel': 			'js/app/models/ConfigModel',
+		'App.Models.ConfigModel': 			'resources/js/app/models/ConfigModel',
 
 		// paths to state PAGE/PANEL model (tells which state to transition to)
-		'App.Models.StateModel': 			'js/app/models/StateModel',
+		'App.Models.StateModel': 			'resources/js/app/models/StateModel',
 
 		// paths to state MENU model (tells which menu item to select)
-		'App.Models.StateMenuModel': 			'js/app/models/StateMenuModel',
+		'App.Models.StateMenuModel': 			'resources/js/app/models/StateMenuModel',
 
 		// paths to views
-		'App.Views.HomePageView': 			'js/app/views/HomePageView',
-		'App.Views.GalleryPageView': 		'js/app/views/GalleryPageView',
-		'App.Views.HelpPageView': 			'js/app/views/HelpPageView',
-		'App.Views.HelpPanelView': 			'js/app/views/HelpPanelView',
-		'App.Views.DatavisPageView': 		'js/app/views/DatavisPageView',
-		'App.Views.RaphaelPageView': 		'js/app/views/RaphaelPageView',
-		'App.Views.ParallaxPageView': 		'js/app/views/ParallaxPageView',
-		'App.Views.ExamplePageView': 		'js/app/views/ExamplePageView',
+		'App.Views.HomePageView': 			'resources/js/app/views/HomePageView',
+		'App.Views.GalleryPageView': 		'resources/js/app/views/GalleryPageView',
+		'App.Views.HelpPageView': 			'resources/js/app/views/HelpPageView',
+		'App.Views.HelpPanelView': 			'resources/js/app/views/HelpPanelView',
+		'App.Views.DatavisPageView': 		'resources/js/app/views/DatavisPageView',
+		'App.Views.RaphaelPageView': 		'resources/js/app/views/RaphaelPageView',
+		'App.Views.ParallaxPageView': 		'resources/js/app/views/ParallaxPageView',
+		'App.Views.ExamplePageView': 		'resources/js/app/views/ExamplePageView',
 
 		// paths to collections
-		//'App.Collections.ExampleCollection': 	'js/app/collections/ExampleCollection',
+		//'App.Collections.ExampleCollection': 	'resources/js/app/collections/ExampleCollection',
 
 		// paths to models
-		//'App.Models.ExampleModel': 			'js/app/models/ExampleModel'
-		'App.Models.GalleryModel': 			'js/app/models/GalleryModel'
+		//'App.Models.ExampleModel': 			'resources/js/app/models/ExampleModel'
+		'App.Models.GalleryModel': 			'resources/js/app/models/GalleryModel'
 
 	},
 
