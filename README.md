@@ -3,8 +3,8 @@ A Backbone.js base
 
 Using common PureMVC and Gaia framework conventions. A good starting point for backbone.js projects.
 
-* Most of the functionality is in `js/app`
-* Third-party libraries are in `js/libs`
+* Most of the functionality is in `resources/js/app`
+* Third-party libraries are in `resources/js/libs`
 * Entrypoint is `index.html`
 
 
@@ -12,22 +12,22 @@ Using common PureMVC and Gaia framework conventions. A good starting point for b
 Script overview
 -------------
 
-`js/libs/require/require.js`
+`resources/js/libs/require/require.js`
 require.js is loaded first. It is a JavaScript file loader library. More information: http://requirejs.org/
 
-`js/app/AppConfig.js`
+`resources/js/app/AppConfig.js`
 Configures the backbone app, then loads AppInit.js
 
-`js/app/AppInit.js`
+`resources/js/app/AppInit.js`
 Where the views and router are initialised
 
-`js/app/Router.js`
+`resources/js/app/Router.js`
 Where the '#hash' URIs are routed 
 
-`js/app/models/StateModel.js`
+`resources/js/app/models/StateModel.js`
 This model defines the state of views. 
 
-`js/app/models/ConfigModel.js`
+`resources/js/app/models/ConfigModel.js`
 Configures variable global settings, based on browser and device (such as windowHeight, touch, videoType, etc)
 
 Create a new state instance by: `App.Models.PageStateModel = new StateModel;`
@@ -102,9 +102,9 @@ details about each parameter:
 
 # Models with on demand JSON
 
-`js/app/AppConfig.js` is where to define the paths to services
+`resources/js/app/AppConfig.js` is where to define the paths to services
 
-`js/app/models/` contains models. Each backbone model should contain default valuse. 
+`resources/js/app/models/` contains models. Each backbone model should contain default valuse. 
 
 Then in your view can demand a service request. 
 
