@@ -61,10 +61,6 @@ requirejs.config({
 		// jquery easing
 		'jquery.easing': 'resources/js/libs/jquery/jquery.easing',
 
-		// kendo 
-		'kendo.console': 	'resources/js/libs/kendo/console',
-		'kendo.dataviz': 	'resources/js/libs/kendo/kendo.dataviz.min',
-
 		// raphael 
 		'raphael': 	'resources/js/libs/raphael/raphael.min',
 
@@ -76,6 +72,9 @@ requirejs.config({
 
 		// modernizr (html5 conditional and tag correction)
 		'modernizr': 	'resources/js/libs/modernizr/modernizr.min',
+
+		// cosmos image loading (image loading and rescaler)
+		'cosmosimageloader': 	'resources/js/libs/cosmos/cosmos-image-loader.1.01',
 		
 		// paths to app initialiser
 		'AppInit': 								'resources/js/app/AppInit',
@@ -97,7 +96,6 @@ requirejs.config({
 		'App.Views.GalleryPageView': 		'resources/js/app/views/GalleryPageView',
 		'App.Views.HelpPageView': 			'resources/js/app/views/HelpPageView',
 		'App.Views.HelpPanelView': 			'resources/js/app/views/HelpPanelView',
-		'App.Views.DatavisPageView': 		'resources/js/app/views/DatavisPageView',
 		'App.Views.RaphaelPageView': 		'resources/js/app/views/RaphaelPageView',
 		'App.Views.ParallaxPageView': 		'resources/js/app/views/ParallaxPageView',
 		'App.Views.ExamplePageView': 		'resources/js/app/views/ExamplePageView',
@@ -123,9 +121,6 @@ requirejs.config({
     'kendo.console': {
     	deps: ["jquery"]
     },
-    'kendo.dataviz': {
-    	deps: ["jquery", "kendo.console"]
-    },
     'waypoints': {
     	deps: ["jquery"]
     },
@@ -138,6 +133,10 @@ requirejs.config({
     'raphael': {
     	deps: ["jquery"],
     	exports: "raphael"
+    },
+    'cosmosimageloader': {
+    	deps: ["jquery"],
+    	exports: "cosmosimageloader"
     }
   },
 	

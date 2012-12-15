@@ -15,6 +15,7 @@ define([
   'jquery',
   'underscore',
   'backbone',
+  'cosmosimageloader',
 
   // required collections
   //'App.Collections.HelloWorldCollection'
@@ -23,7 +24,7 @@ define([
   'App.Models.GalleryModel'
 
 // require js: defines instances
-], function($, _, Backbone, GalleryModel){
+], function($, _, Backbone, CosmosImageLoader, GalleryModel){
 
 
   var GalleryPageView = Backbone.View.extend({
@@ -56,6 +57,7 @@ define([
 
         // loops through the dataResponse array
         for (var i = 0; i < dataResponse.length; i++) {
+          dataResponse[i].id = i;
           App.Views.GalleryPageView.createItem(dataResponse[i]);
         }
       },
@@ -63,7 +65,9 @@ define([
       // creates an item on the page
       createItem: function (curObj) { 
         //console.log(curObj.page_title);
-        this.galleryItemsTarget.append('<li><a href="'+curObj.page_url+'" target="_blank" > '+curObj.page_title+'<br><img src="'+curObj.page_image_url+'"></a></li>');
+        // <img src="'+curObj.page_image_url+'">
+        this.galleryItemsTarget.append('<li><a href="'+curObj.page_url+'" target="_blank" > '+curObj.page_title+'<br><div class="image-target-image-container image-loader-target-'+curObj.id+'"></div></a></li>');
+        var _il1 = new Cosmos.Utils.ImageLoaderWithRescaleSlideShow('.image-loader-target-'+curObj.id, [curObj.page_image_url], 1000, 1000, "rescaleEnabled", "centreEnabled", "elementResizeListenerDisabled");
 
       },
       
@@ -94,8 +98,8 @@ define([
 
         // loads the gallery items
         var GItems = new GalleryModel;
-        GItems.url = App.Data.GalleryData;
-        //GItems.url = "http://cosmos.is/api/service/data/format/jsonp/?project_name=SummerAtTarget&project_password=6CB4816A23A965B5DFD58E45F4C23&table=unique_references&batch=1&batchSize=6&whereConditionArray=project_id||9&select=*&orderBy=vote_count||desc&callback=?"
+        //GItems.url = App.Data.GalleryData;
+        GItems.url = "http://cosmos.is/api/service/data/format/jsonp/?project_name=SummerAtTarget&project_password=6CB4816A23A965B5DFD58E45F4C23&table=unique_references&batch=1&batchSize=6&whereConditionArray=project_id||9&select=*&orderBy=vote_count||desc&callback=?"
         GItems.type = 'GET';
         GItems.dataType = 'jsonp';
         GItems.fetch({success: this.onDataLoadComplete});

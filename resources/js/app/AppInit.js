@@ -28,7 +28,6 @@ define([
   'App.Views.HomePageView',
   'App.Views.GalleryPageView',
   'App.Views.HelpPageView',
-  'App.Views.DatavisPageView',
   'App.Views.RaphaelPageView',
   'App.Views.ParallaxPageView',
   'App.Views.ExamplePageView'
@@ -36,7 +35,7 @@ define([
 
 
 // require js: defines instances
-], function($, _, Backbone, Router, ConfigModel, StateModel, StateMenuModel, HomePageView, GalleryPageView, HelpPageView, DatavisPageView, RaphaelPageView, ParallaxPageView, ExamplePageView){
+], function($, _, Backbone, Router, ConfigModel, StateModel, StateMenuModel, HomePageView, GalleryPageView, HelpPageView, RaphaelPageView, ParallaxPageView, ExamplePageView){
 
 
     
@@ -57,7 +56,6 @@ define([
       App.Views.HomePageView = new HomePageView;
       App.Views.GalleryPageView = new GalleryPageView;
       App.Views.HelpPageView = new HelpPageView;
-      App.Views.DatavisPageView = new DatavisPageView;
       App.Views.RaphaelPageView = new RaphaelPageView;
       App.Views.ParallaxPageView = new ParallaxPageView;
       App.Views.ExamplePageView = new ExamplePageView;
@@ -69,7 +67,6 @@ define([
       App.Views.HomePageView.trigger("testCall");
       App.Views.GalleryPageView.trigger("testCall");
       App.Views.HelpPageView.trigger("testCall");
-      App.Views.DatavisPageView.trigger("testCall");
       App.Views.RaphaelPageView.trigger("testCall");
       App.Views.ParallaxPageView.trigger("testCall");
       App.Views.ExamplePageView.trigger("testCall");
