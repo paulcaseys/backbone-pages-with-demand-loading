@@ -67,12 +67,15 @@ Cosmos.Utils.ImageLoaderWithRescaleSlideShow = function(theTargetElement, theIma
 
 	$(theTargetElement).css('overflow', "hidden");
 
-	$(theTargetElement).append('<div class="imageLoaderInnerContainer"> </div>');
 
 
 	for (var i=0; i<theImageArray.length; i++) {
-		$(theTargetElement+" .imageLoaderInnerContainer").append($('<img>', {
-	    	src:   theImageArray[i],
+		$(theTargetElement).append('<div class="imageLoaderInnerContainer imageLoaderInnerContainer'+i+'"> </div>');
+		if(theImageArray[i]["background-color"]){
+			$(theTargetElement+" .imageLoaderInnerContainer"+i).css({"background-color":theImageArray[i]["background-color"]});
+		}
+		$(theTargetElement+" .imageLoaderInnerContainer"+i).append($('<img>', {
+	    	src:   theImageArray[i].img,
 	    	'class': 'appendedImage appendedImage'+i,
 	    	'style': '-ms-interpolation-mode: bicubic;', // smooths image in older v\versions of IE, may cause a slight edge
 	    	'data-imgId': i
@@ -103,6 +106,8 @@ Cosmos.Utils.ImageLoaderWithRescaleSlideShow = function(theTargetElement, theIma
 			// positions the image
 			Cosmos.Utils.PositionImage(theTargetElement, varObj);
 
+			$(theTargetElement +' .imageLoaderInnerContainer').hide();
+			$(theTargetElement +' .appendedImage').show();
 
 			if(theImageArray.length > 1){
 				// MULTIPLE IMAGES
@@ -149,7 +154,7 @@ Cosmos.Utils.PlaySlideshow = function(theTargetElement, varObj) {
 	if(theTargetImageId+1 < theImageArrayLength) {
 		theCurrentImageId = theTargetImageId+1;
 	}
-	//console.log(theCurrentImageId);
+
 	$(theTargetElement).data("theCurrentImageId", theCurrentImageId);
 
 };
@@ -160,7 +165,7 @@ Cosmos.Utils.DisplayImage = function(theTargetElement, theTargetImageId, theFade
 
 	// loops through all the images
 	var index_highest = 0;   
-	$(theTargetElement+" img").each(function() {
+	$(theTargetElement+" .imageLoaderInnerContainer").each(function() {
 	    // always use a radix when using parseInt
 	    var index_current = parseInt($(this).css("zIndex"), 10);
 	    if(index_current > index_highest) {
@@ -168,8 +173,8 @@ Cosmos.Utils.DisplayImage = function(theTargetElement, theTargetImageId, theFade
 	    }
 	});
 
-	var curImage = theTargetElement + " .appendedImage"+theTargetImageId
-	var curImageSrc = $(curImage).attr("src");
+	var curImage = theTargetElement + " .imageLoaderInnerContainer"+theTargetImageId;
+	var curImageSrc = $(curImage+" img").attr("src");
 
 	$(theTargetElement).data("curImage", curImage);
 	$(theTargetElement).data("curImageSrc", curImageSrc);
@@ -182,14 +187,14 @@ Cosmos.Utils.DisplayImage = function(theTargetElement, theTargetImageId, theFade
 	}
 	
 
-	$(curImage).css({"position":"absolute", "z-index":index_highest+1, "display": "none"});
+	$(curImage).css({"z-index":index_highest+1, "display": "none"});
 	$(curImage).fadeIn(theFadeSpeed);
 };
 
 Cosmos.Utils.PositionImage = function(theTargetElement, varObj) {
 	
 
-	$(theTargetElement).css({"text-align":"left"})
+	$(theTargetElement).css({"text-align":"left"});
 	$(theTargetElement+" .imageLoaderInnerContainer").css({"overflow":"hidden", "position":"absolute", "width":$(theTargetElement).width(), "height":$(theTargetElement).height()});
 
 
@@ -205,7 +210,6 @@ Cosmos.Utils.PositionImage = function(theTargetElement, varObj) {
 
 		var curImage =			$(this);
 
-
 		// get target properties 
 		var targetWidth = parseInt($(theTargetElement).width(), 10);
 		var targetHeight = parseInt($(theTargetElement).height(), 10);
@@ -220,32 +224,40 @@ Cosmos.Utils.PositionImage = function(theTargetElement, varObj) {
 		// crops and rescales the image
 		if(theRescale == "rescaleEnabled"){
 
-				curImage.css({"height": targetHeight +"px", "width": "auto"});
-				imgHeight = targetHeight;
-				imgWidth = Math.round(imgHeight * imgAspect);
-				
-				if((targetHeight * imgAspect) < targetWidth){
-					curImage.css({"width": targetWidth +"px","height":"auto"});
-					imgWidth = targetWidth;
-					imgHeight = Math.round(imgWidth / imgAspect);
-				}
+			imgHeight = targetHeight;
+			imgWidth = Math.round(imgHeight * imgAspect);
+			curImage.css({"width": imgWidth, "height": targetHeight +"px"});
+			
+			if((targetHeight * imgAspect) < targetWidth){
+				imgWidth = targetWidth;
+				imgHeight = Math.round(imgWidth / imgAspect);
+				curImage.css({"width": targetWidth +"px","height":imgHeight});
+			}
+
+		} else if (theRescale == "rescaleInnerEnabled"){
+
+			curImage.css({"height": targetHeight +"px", "width": "auto"});
+			imgHeight = targetHeight;
+			imgWidth = Math.round(imgHeight * imgAspect);
+			
+			if((targetHeight * imgAspect) > targetWidth){
+				curImage.css({"width": targetWidth +"px","height":"auto"});
+				imgWidth = targetWidth;
+				imgHeight = Math.round(imgWidth / imgAspect);
+			}
 
 		}
 
 		// centers the image
 		if (theCentre == "centreEnabled") {
+			curImage.css({"margin-left": Math.round((targetWidth - imgWidth) / 2) +"px"});			
+			curImage.css({"margin-top": Math.round((targetHeight - imgHeight) / 2) +"px"});
+			
+		} else if (theCentre == "topAlignEnabled") {
 
-			if(imgWidth > targetWidth){
-				curImage.css({"margin-left":"-"+ Math.round((imgWidth - targetWidth) / 2) +"px"});
-			} else {
-				curImage.css({"margin-left": "0px"});
-			}
-			if(imgHeight > targetHeight){
-				curImage.css({"margin-top":"-"+ Math.round((imgHeight - targetHeight) / 2) +"px"});
-			} else {
-				curImage.css({"margin-top": "0px"});
-			}
-			console.log(curImage.attr("src")+" : "+curImage.css("margin-left"));
+			curImage.css({"margin-left": Math.round((targetWidth - imgWidth) / 2) +"px"});			
+			curImage.css({"margin-top": "0px"});
+
 		}
 
 

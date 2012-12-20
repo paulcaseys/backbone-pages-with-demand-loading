@@ -67,7 +67,7 @@ define([
         //console.log(curObj.page_title);
         // <img src="'+curObj.page_image_url+'">
         this.galleryItemsTarget.append('<li><a href="'+curObj.page_url+'" target="_blank" > '+curObj.page_title+'<br><div class="image-target-image-container image-loader-target-'+curObj.id+'"></div></a></li>');
-        var _il1 = new Cosmos.Utils.ImageLoaderWithRescaleSlideShow('.image-loader-target-'+curObj.id, [curObj.page_image_url], 1000, 1000, "rescaleEnabled", "centreEnabled", "elementResizeListenerDisabled");
+        var _il1 = new Cosmos.Utils.ImageLoaderWithRescaleSlideShow('.image-loader-target-'+curObj.id, [{"img":curObj.page_image_url}], 1000, 1000, "rescaleEnabled", "centreEnabled", "elementResizeListenerDisabled");
 
       },
       
